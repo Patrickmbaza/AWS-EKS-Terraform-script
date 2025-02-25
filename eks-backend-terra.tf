@@ -7,13 +7,13 @@
 #   }
 # }
 
-# terraform { 
-#   cloud { 
+terraform { 
+  cloud { 
     
-#     organization = "Goteh-Oganisation" 
+    organization = "Goteh-Oganisation" 
 
-#     workspaces { 
-#       name = "goteh01" 
-#     } 
-#   } 
-# }
+    workspaces { 
+      name = "goteh01" 
+    } 
+  } 
+}

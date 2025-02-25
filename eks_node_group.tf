@@ -12,6 +12,10 @@ resource "aws_instance" "kubectl-server" {
 
 }
 
+output "kubectl-server" {
+  value = aws_instance.kubectl-server[*].public_ip
+}
+
 resource "aws_eks_node_group" "node-grp" {
   cluster_name    = aws_eks_cluster.eks.name
   node_group_name = "pc-node-group"
@@ -20,6 +24,10 @@ resource "aws_eks_node_group" "node-grp" {
   capacity_type   = "ON_DEMAND"
   disk_size       = "20"
   instance_types  = ["t2.small"]
+
+   tags = {
+    Name = "node"
+  }
 
   remote_access {
     ec2_ssh_key               = "PatrickKP"
